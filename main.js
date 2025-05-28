@@ -36,7 +36,7 @@ document.querySelector("#app").innerHTML = /*html*/`
   place-once
 ></a-plane>  -->
 
-<!-- Orchis -->
+<!-- Orchis 
 <a-entity
   class="clickable"
   gltf-model="models/orchid.glb"
@@ -50,6 +50,24 @@ document.querySelector("#app").innerHTML = /*html*/`
     heightRange: 0 6;
   "
   place-once
+></a-entity>  -->
+
+<!-- briefcase -->
+<a-entity
+  class="clickable"
+  gltf-model="models/briefcase.glb"
+  animation-mixer="clip: closed"
+  scale="0.3 0.3 0.3" 
+  place-object="
+    surfaceTypes: horizontal;
+    faceCamera: false;
+    adjustOrientation: false;
+    isPoster: false;
+    scale: 0.3;
+    heightRange: 0 6;
+  "
+  place-once
+  toggle-animation="openClip: open; closedClip: closed"
 ></a-entity>
 
   <!-- ROBOT 
