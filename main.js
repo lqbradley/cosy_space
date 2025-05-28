@@ -10,6 +10,7 @@ import "./components/touch-raycaster.js";
 import "./components/hello.js";
 import "./components/show-contact.js"
 import "./components/place-once.js"
+import "./components/animation-toggle.js"
 
 document.querySelector("#app").innerHTML = /*html*/`
 <a-scene 
@@ -19,8 +20,6 @@ document.querySelector("#app").innerHTML = /*html*/`
   place-object-manager="maxObjects: 20; showPreview: true"
   touch-raycaster
 >
-
-<a-entity id="mouseRaycaster" raycaster="objects: .clickable" cursor="rayOrigin: mouse; fuse: false;"></a-entity>
 
 <!-- Photo
 <a-plane
@@ -57,13 +56,19 @@ document.querySelector("#app").innerHTML = /*html*/`
 ></a-entity>  -->
 
 <!-- briefcase -->
+<a-box 
+width="0.3" height="0.7" depth="0.9"
+opacity= "0"
+animation-toggle 
+class="clickable"
+>
 <a-entity
-  class="clickable"
+position = "0 -0.25 0"
   gltf-model="models/briefcase.glb"
   animation-mixer="clip: *closed*"
   scale="0.3 0.3 0.3"
-  visible = "false"
-  place-object="
+  xxvisible = "false"
+  xxplace-object="
     surfaceTypes: horizontal;
     faceCamera: false;
     adjustOrientation: true;
@@ -71,10 +76,10 @@ document.querySelector("#app").innerHTML = /*html*/`
     scale: 0.3;
     heightRange: 0 6;
   "
-  place-once
-  animation-toggle
+  xxplace-once
 >
 </a-entity>
+</a-box>
  
 
 <!-- Gramophone 
