@@ -22,6 +22,8 @@ document.querySelector("#app").innerHTML = /*html*/`
   touch-raycaster
 >
 
+<a-entity id="mouseRaycaster" raycaster="objects: .clickable" cursor="rayOrigin: mouse; fuse: false;"></a-entity>
+
 <!-- Photo
 <a-plane
   class="clickable"
@@ -57,45 +59,25 @@ document.querySelector("#app").innerHTML = /*html*/`
 ></a-entity>  -->
 
 <!-- briefcase -->
-<a-box 
-width="1" height="2.5" depth="3"
-color="transparent"
-opacity= "0"
-visible="false"
-animation-toggle 
-class="clickable"
-place-object="
-      surfaceTypes: horizontal, floor, vertical;
-      faceCamera: false;
-      adjustOrientation: true;
-      isPoster: false;
-      scale: 0.1;
-      heightRange: 0 6;
-    "
-     place-once
->
 <a-entity
-  position = "0 -1 0"
+  class="clickable"
   gltf-model="models/briefcase.glb"
   animation-mixer="clip: *closed*"
-  scale="1 1 1"
-  
-  
-></a-entity>
-
-</a-box>
+  scale="0.3 0.3 0.3"
+  visible = "false"
+  place-object="
+    surfaceTypes: horizontal;
+    faceCamera: false;
+    adjustOrientation: true;
+    isPoster: false;
+    scale: 0.3;
+    heightRange: 0 6;
+  "
+  place-once
+  animation-toggle
+>
+</a-entity>
  
-<a-image 
-    id="popup-photo"
-    src="textures/maxresdefault.jpg" 
-    follow-camera="angle: 1; distance: 4;"
-    position="0 1.5 -1" 
-    visible="false" 
-    width="1" 
-    height="1"
-    opacity="0.65"
-    face-camera
-  ></a-image>
 
 <!-- Gramophone 
 <a-entity
@@ -112,7 +94,10 @@ place-object="
     heightRange: 0 6;
   "
   place-once
-></a-entity> -->
+  animation-toggle
+  sound="src: url(luxury-jazz-loop-312713.mp3); autoplay: false; on: click"
+  sound-toggle
+></a-entity> 
 
 <!-- AlpaKa
 <a-entity 
