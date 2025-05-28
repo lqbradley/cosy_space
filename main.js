@@ -20,7 +20,39 @@ document.querySelector("#app").innerHTML = /*html*/`
   touch-raycaster
 >
 
-  <!-- ROBOT -->
+<!-- Photo
+<a-plane
+  class="clickable"
+  src="textures/Paws.jpg"
+  width="0.2" height="0.2" material="shader: flat"
+  place-object="
+    surfaceTypes: wall;
+    faceCamera: false;
+    isPoster: true;
+    adjustOrientation: true;
+    scale: 1;
+    heightRange: 0 6;
+  "
+  place-once
+></a-plane>  -->
+
+<!-- Orchis -->
+<a-entity
+  class="clickable"
+  gltf-model="models/orchid.glb"
+  scale="0.05 0.05 0.05"
+  place-object="
+    surfaceTypes: horizontal;
+    faceCamera: false;
+    adjustOrientation: true;
+    isPoster: false;
+    scale: 0.05;
+    heightRange: 0 6;
+  "
+  place-once
+></a-entity>
+
+  <!-- ROBOT 
   <a-entity 
     gltf-model="models/robot.glb"
     animation-mixer="clip: *Dance*"
@@ -48,7 +80,7 @@ document.querySelector("#app").innerHTML = /*html*/`
     ></a-ar-button>
   </a-entity>
 
-  <!-- DIALOG -->
+  DIALOG
   <a-plane id="dialog" follow-camera="angle: 1; distance: 0.3;" billboard scale="0 0 0" color="black" width="2" height="2">
     <a-text value="Robot contact card" color="white" position="0 0.75 0.05" align="center" width="4"></a-text>
     <a-text value="Phone: 4542165654654" color="white" position="0 0.5 0.05" align="center" width="2"></a-text>
@@ -57,7 +89,7 @@ document.querySelector("#app").innerHTML = /*html*/`
       <a-text value="Add to favorites" color="white" position="0.15 0 0" align="left" width="2"></a-text>
     </a-entity>
     <a-ar-button id="dialog-close-button" position="0 -0.5 0.05" content="Close"></a-ar-button> 
-  </a-plane>
+  </a-plane> -->
 
 </a-scene>
 `
