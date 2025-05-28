@@ -10,6 +10,7 @@ import "./components/touch-raycaster.js";
 import "./components/hello.js";
 import "./components/show-contact.js"
 import "./components/place-once.js"
+import "./components/sound-toggle.js"
 
 document.querySelector("#app").innerHTML = /*html*/`
 <a-scene 
@@ -20,9 +21,9 @@ document.querySelector("#app").innerHTML = /*html*/`
   touch-raycaster
 >
  <a-assets>
-    <audio id="fireplace" src="fireplace.mp3" preload="auto"></audio>
+    <audio id="luxury-jazz-loop-312713" src="luxury-jazz-loop-312713.mp3" preload="auto" ></audio>
   </a-assets>
-  
+
 <a-entity id="mouseRaycaster" raycaster="objects: .clickable" cursor="rayOrigin: mouse; fuse: false;"></a-entity>
 
 <!-- Photo
@@ -95,7 +96,9 @@ document.querySelector("#app").innerHTML = /*html*/`
     heightRange: 0 6;
   "
   place-once
-   sound="src: url(fireplace.mp3); on: click"
+  animation-toggle
+  sound="src: url(luxury-jazz-loop-312713.mp3); autoplay: false; on: click"
+  sound-toggle
 ></a-entity> 
 
 <!-- AlpaKa
