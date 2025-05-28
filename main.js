@@ -36,7 +36,7 @@ document.querySelector("#app").innerHTML = /*html*/`
   place-once
 ></a-plane>  -->
 
-<!-- Orchis -->
+<!-- Orchid -->
 <a-entity
   class="clickable"
   gltf-model="models/orchid.glb"
@@ -51,6 +51,32 @@ document.querySelector("#app").innerHTML = /*html*/`
   "
   place-once
 ></a-entity>
+
+<a-entity
+  class="clickable"
+  gltf-model="models/Gramophone.glb"
+  scale="0.05 0.05 0.05"
+  place-object="
+    surfaceTypes: horizontal, floor;
+    faceCamera: true;
+    adjustOrientation: true;
+    isPoster: false;
+    scale: 0.05;
+    heightRange: 0 6;
+  "
+  place-once
+></a-entity>
+
+
+<a-entity 
+    gltf-model="models/Alpaca.glb"
+    animation-mixer="clip: *Walk*"
+    hello="message: Hey, nom nom, how are you feeling?"
+    place-object="surfaceTypes: horizontal, wall; adjustOrientation: true; faceCamera: true; isPoster: false; scale: 0.1;"
+    place-once
+    visible="false"
+  >
+  </a-entity>
 
   <!-- ROBOT 
   <a-entity 
