@@ -1,0 +1,19 @@
+{
+  "name": "vga-aframe",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "aframe": "~1.5.0",
+    "aframe-extras": "^7.5.4",
+    "spatial-design-system": "^1.8.0"
+  },
+  "devDependencies": {
+    "vite": "^6.2.4"
+  }
+}
