@@ -5,7 +5,7 @@ AFRAME.registerComponent("hello", {
   },
 
   init() {
-      const messageEl = document.getElementById("robot-message")
+      const messageEl = this.el.querySelector("#robot-message")
       messageEl.setAttribute("value", this.data.message)
 
       // display the message after a delay
