@@ -19,7 +19,10 @@ document.querySelector("#app").innerHTML = /*html*/`
   place-object-manager="maxObjects: 20; showPreview: true"
   touch-raycaster
 >
-
+ <a-assets>
+    <audio id="fireplace" src="fireplace.mp3" preload="auto"></audio>
+  </a-assets>
+  
 <a-entity id="mouseRaycaster" raycaster="objects: .clickable" cursor="rayOrigin: mouse; fuse: false;"></a-entity>
 
 <!-- Photo
@@ -56,7 +59,7 @@ document.querySelector("#app").innerHTML = /*html*/`
   place-once
 ></a-entity>  -->
 
-<!-- briefcase -->
+<!-- briefcase 
 <a-entity
   class="clickable"
   gltf-model="models/briefcase.glb"
@@ -75,9 +78,9 @@ document.querySelector("#app").innerHTML = /*html*/`
   animation-toggle
 >
 </a-entity>
- 
+-->
 
-<!-- Gramophone 
+<!-- Gramophone -->
 <a-entity
   class="clickable"
   gltf-model="models/Gramophone.glb"
@@ -92,7 +95,8 @@ document.querySelector("#app").innerHTML = /*html*/`
     heightRange: 0 6;
   "
   place-once
-></a-entity> -->
+   sound="src: url(fireplace.mp3); on: click"
+></a-entity> 
 
 <!-- AlpaKa
 <a-entity 
