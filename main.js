@@ -159,6 +159,26 @@ class="clickable"
   face-camera
 ></a-image> 
 
+<a-entity 
+      button_option='
+      buttonSide: next;
+      objects: [{"modelUrl":"./models/decorations/Lava lamp.glb",
+                 "scale":"1.5 1.5 1.5"},
+                {"modelUrl":"./models/decorations/Globe.glb",
+                "scale":"1.15 1.15 1.15"},
+                {"modelUrl":"./models/decorations/paint kit mini.glb",
+                "scale":"50 50 50 "},
+                {"modelUrl":"./models/decorations/Snowglobe.glb",
+                  "scale":"2 2 2"},
+                {"modelUrl":"./models/decorations/Open Book.glb",
+                  "scale":"7 7 7"},
+                {"modelUrl":"./models/decorations/Camera.glb",
+                  "scale":"10 10 10"}]
+      '
+      geometry="primitive: triangle; vertexA: 0 1 0; vertexB: 0 -1 0; vertexC: 1 0 0" 
+      position="12 0 -9" visible="true" scale="0.3 0.3 0.3"
+      material="color: #FFECA1" class="clickable" rotation="2 0 0">
+</a-entity>
 <!-- <a-entity id="Lava-lamp"
   class="clickable"
   gltf-model="models/Lava lamp.glb"
