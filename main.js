@@ -22,60 +22,67 @@ document.querySelector("#app").innerHTML = /*html*/`
   place-object-manager="maxObjects: 20; showPreview: true"
   touch-raycaster
 >
+<a-entity
+place-once
+place-object="
+surfaceTypes: horizontal;
+faceCamera: false;
+adjustOrientation: true;
+isPoster: false;
+scale: 0.2;
+heightRange: 0 6;
+"
+visible="false"
+>
 
-<!-- Photo
+<!-- Alpaca -->
+<a-entity 
+    gltf-model="models/Alpaca.glb"
+    scale="2 2 2"
+    visible="true"
+    random-walk="speed: 10; areaSize: 600"
+  animation-mixer="clip: Walk"
+   ></a-entity>
+
+<!-- Gramophone-->
+<a-entity id="Gramophone"
+  class="clickable"
+  gltf-model="models/Gramophone.glb"
+  scale="5 5 5"
+  visible = "true"
+  sound="src: url(luxury-jazz-loop-312713.mp3); autoplay: false; on: click"
+  sound-toggle
+  position="0 0 12.855"
+></a-entity>   
+
+<!-- Photo -->
 <a-plane
   class="clickable"
   src="textures/Paws.jpg"
-  width="0.2" height="0.2" material="shader: flat"
-  visible = "false"
-  place-object="
-    surfaceTypes: wall;
-    faceCamera: false;
-    isPoster: true;
-    adjustOrientation: true;
-    scale: 1;
-    heightRange: 0 6;
-  "
-  place-once
-></a-plane>  -->
+  width="1" height="1" material="shader: flat"
+  visible = "true"
+  position="0 6 0"
+  face-camera
+></a-plane>  
 
-<!-- Orchid 
+<!-- Orchid -->
 <a-entity
   class="clickable"
-  gltf-model="models/orchid.glb"
-  scale="0.05 0.05 0.05"
-  visible = "false"
-  place-object="
-    surfaceTypes: horizontal;
-    faceCamera: false;
-    adjustOrientation: true;
-    isPoster: false;
-    scale: 0.05;
-    heightRange: 0 6;
-  "
-  place-once
-></a-entity>  -->
-
-
+  gltf-model="models/Orchid.glb"
+  scale="0.5 0.5 0.5"
+  position="2 0 -10"
+></a-entity>  
 
 <!-- briefcase -->
+
 <a-box id="Briefcase"
 width="1" height="2.5" depth="3"
 color="transparent"
 opacity= "0"
-visible="false"
+visible="true"
 animation-toggle 
 class="clickable"
-place-object="
-      surfaceTypes: horizontal, floor, vertical;
-      faceCamera: false;
-      adjustOrientation: true;
-      isPoster: false;
-      scale: 0.1;
-      heightRange: 0 6;
-    "
-     place-once
+
 >
 <a-entity
   position = "0 -1 0"
@@ -115,37 +122,8 @@ place-object="
   face-camera
 ></a-image> 
 
-<!-- Gramophone
-<a-entity id="Gramophone"
-  class="clickable"
-  gltf-model="models/Gramophone.glb"
-  scale="0.7 0.7 0.7"
-  visible = "false"
-  place-object="
-    surfaceTypes: horizontal, floor;
-    faceCamera: true;
-    adjustOrientation: true;
-    isPoster: false;
-    scale: 0.7;
-    heightRange: 0 6;
-  "
-  place-once
-  animation-toggle
-  sound="src: url(luxury-jazz-loop-312713.mp3); autoplay: false; on: click"
-  sound-toggle
-></a-entity>   -->
 
-<!-- AlpaKa 
-<a-entity 
-    gltf-model="models/Alpaca.glb"
-    scale="0.33 0.33 0.33"
-    place-object="surfaceTypes: horizontal, floor; adjustOrientation: true; faceCamera: false; isPoster: false; scale: 0.33; heightRange: 0 6;"
-    visible="false"
-    place-once
-    random-walk="speed: 0.7; areaSize: 4"
-  animation-mixer="clip: Walk"
-  ></a-entity> 
-  
 
+</a-entity>
 </a-scene>
 `
