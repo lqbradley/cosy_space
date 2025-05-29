@@ -10,6 +10,7 @@ import "./components/touch-raycaster.js";
 import "./components/hello.js";
 import "./components/show-contact.js"
 import "./components/place-once.js"
+import "./components/moving_button.js"
 import "./components/animation-toggle.js"
 import "./components/face-camera.js"
 import "./components/random-walk.js"
@@ -21,14 +22,23 @@ document.querySelector("#app").innerHTML = /*html*/`
   ar-hit-test="mapSize: 0 0" 
   place-object-manager="maxObjects: 20; showPreview: true"
   touch-raycaster
+  background="color: black"
 >
+  <a-camera position="0 0 2"></a-camera>
+ 
+ <a-assets>
+    <audio id="sound" src="luxury-jazz-loop-312713.mp3" preload="auto"></audio>
+    <audio id="sound" src="fireplace.mp3" preload="auto"></audio>
+    <audio id="sound" src="rain-sound-272604.mp3" preload="auto"></audio>
+  </a-assets>
+
+<a-entity id="mouseRaycaster" raycaster="objects: .clickable" cursor="rayOrigin: mouse; fuse: false;"></a-entity>
 
 <!-- Photo
 <a-plane id="Photo"
   class="clickable"
   src="textures/Paws.jpg"
   width="0.2" height="0.2" material="shader: flat"
-  visible = "false"
   place-object="
     surfaceTypes: wall;
     faceCamera: false;
@@ -55,9 +65,38 @@ document.querySelector("#app").innerHTML = /*html*/`
     heightRange: 0 6;
   "
   place-once
-></a-entity>  
+></a-entity> 
+
+<a-entity button_option="
+      buttonSide: back;
+      objects: [{&quot;modelUrl&quot;:&quot;./models/plants/Houseplant_1.glb&quot;},
+                {&quot;modelUrl&quot;:&quot;./models/plants/orchid.glb&quot;},
+                {&quot;modelUrl&quot;:&quot;./models/plants/Plant - White Pot.glb&quot;},
+                {&quot;modelUrl&quot;:&quot;./models/plants/Vines.glb&quot;}]
+      "
+      geometry="primitive: triangle; vertexA: 0 1 0; vertexB: 0 -1 0; vertexC: 1 0 0" 
+      position="0 0 -2" visible="true" scale="0.1 0.1 0.1"
+      material="color: red">
+</a-entity>
+<!--<a-entity id="nextBtn" button_option="buttonSide: next;
+ objects: [{&quot;modelUrl&quot;:&quot;./models/plants/Houseplant_1.glb&quot;},
+          {&quot;modelUrl&quot;:&quot;./models/plants/orchid.glb&quot;},
+          {&quot;modelUrl&quot;:&quot;./models/plants/Plant - White Pot.glb&quot;},
+          {&quot;modelUrl&quot;:&quot;./models/plants/Vines.glb&quot;}]" 
+          position="1 1 -2"
+          text="value: >"
+          visible=true></a-entity>
 
 
+<a-entity id="backBtn" button_option="buttonSide: back; 
+objects: [{&quot;modelUrl&quot;:&quot;./models/plants/Houseplant_1.glb&quot;},
+          {&quot;modelUrl&quot;:&quot;./models/plants/orchid.glb&quot;},
+          {&quot;modelUrl&quot;:&quot;./models/plants/Plant - White Pot.glb&quot;},
+          {&quot;modelUrl&quot;:&quot;./models/plants/Vines.glb&quot;}]" 
+          position="-1 1 -2"
+          visible=true></a-entity>-->
+
+</a-entity>  
 
 <!-- briefcase -->
 <a-box id="Briefcase"
@@ -130,7 +169,7 @@ place-object="
     heightRange: 0 6;
   "
   place-once
-  animation-toggle
+
   sound="src: url(luxury-jazz-loop-312713.mp3); autoplay: false; on: click"
   sound-toggle
 ></a-entity>   -->
@@ -140,7 +179,6 @@ place-object="
     gltf-model="models/Alpaca.glb"
     scale="0.33 0.33 0.33"
     place-object="surfaceTypes: horizontal, floor; adjustOrientation: true; faceCamera: false; isPoster: false; scale: 0.33; heightRange: 0 6;"
-    visible="false"
     place-once
     random-walk="speed: 0.7; areaSize: 4"
   animation-mixer="clip: Walk"
