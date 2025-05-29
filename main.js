@@ -38,12 +38,18 @@ document.querySelector("#app").innerHTML = /*html*/`
     <audio id="sound" src="rain-sound-272604.mp3" preload="auto"></audio>
   </a-assets>
 
-<!--
-<a-entity position="0 -2 0">
-  <a-plane material="src:./textures/wood.jpg; repeat: 20 20" height="50" width="50" rotation="-90 0 0"></a-plane>
-</a-entity>
-
-<a-sky material="src:./textures/wallpaper.jpg; repeat: 10 10"></a-sky> -->
+  <a-entity
+  place-once
+  place-object="
+  surfaceTypes: horizontal;
+  faceCamera: false;
+  adjustOrientation: true;
+  isPoster: false;
+  scale: 0.2;
+  heightRange: 0 6;
+  "
+  visible="false"
+  >
 
 
 <!-- arrows for plants-->
@@ -51,7 +57,7 @@ document.querySelector("#app").innerHTML = /*html*/`
       button_option='
       buttonSide: next;
       objects: [{"modelUrl":"./models/plants/Sansevieria Plant.glb",
-                 "scale":"1 1 1"},
+                 "scale":"5 5 5"},
                 {"modelUrl":"./models/plants/Sansevieria Plant.glb"},
                 {"modelUrl":"./models/plants/Yucca Plant.glb"},
                 {"modelUrl":"./models/plants/Orchid.glb",
@@ -63,20 +69,6 @@ document.querySelector("#app").innerHTML = /*html*/`
       position="5 0 -2" visible="true" scale="0.3 0.3 0.3"
       material="color: #FFECA1" class="clickable" rotation="2 0 0">
 </a-entity>
-
-<!-- arrows for desk 
-<a-entity face-camera
-      button_option='
-      buttonSide: next;
-      objects: [{"modelUrl":"./models/desks/Desk_1.glb",
-                  "scale":"2 2 2"},
-                {"modelUrl":"./models/desks/Desk.glb"},
-                {"modelUrl":"./models/desks/Drafting Table.glb"}]
-      '
-      geometry="primitive: triangle; vertexA: 0 1 0; vertexB: 0 -1 0; vertexC: 1 0 0" 
-      position="-5 0 -2" visible="true" scale="0.3 0.3 0.3"
-      material="color: #FFECA1" class="clickable">
-</a-entity> -->
 
 <!-- Alpaca -->
 <a-entity 
@@ -93,7 +85,7 @@ document.querySelector("#app").innerHTML = /*html*/`
 <a-entity id="Gramophone"
   class="clickable"
   gltf-model="models/Gramophone.glb"
-  scale="5 5 5"
+  scale="3 3 3"
   visible = "true"
   sound="src: url(luxury-jazz-loop-312713.mp3); autoplay: false; on: click"
   sound-toggle
@@ -110,13 +102,13 @@ document.querySelector("#app").innerHTML = /*html*/`
   face-camera
 ></a-plane>  
 
-<!-- Orchid -->
+<!-- Orchid 
 <a-entity
   class="clickable"
   gltf-model="models/Orchid.glb"
   scale="0.5 0.5 0.5"
   position="2 0 -10"
-></a-entity>  
+></a-entity>  -->
 
 <!-- briefcase -->
 
@@ -167,13 +159,14 @@ class="clickable"
   face-camera
 ></a-image> 
 
-<a-entity id="Lava-lamp"
+<!-- <a-entity id="Lava-lamp"
   class="clickable"
   gltf-model="models/Lava lamp.glb"
   scale="0.5 0.5 0.5"
   visible = "true"
+  posiion="12 0 -9"
 >
-  </a-entity> 
+  </a-entity> -->
 
   <!--
   "objects: [{&quot;modelUrl&quot;:&quot;./models/Lava lamp;},
@@ -188,7 +181,7 @@ class="clickable"
                 {&quot;modelUrl&quot;:&quot;./fireplace.mp3;},
                 {&quot;modelUrl&quot;:&quot;./rain-sound-272604.mp3},
 
-      "
+      " -->
 
 </a-entity>
 </a-scene>
