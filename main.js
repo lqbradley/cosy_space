@@ -227,6 +227,30 @@ place-object="
   animation-mixer="clip: Walk"
   ></a-entity> 
   
+-->
 
+<a-entity id="Lava-lamp"
+  class="clickable"
+  gltf-model="models/Lava lamp.glb"
+  scale="0.5 0.5 0.5"
+  visible = "true"
+>
+  </a-entity> 
+
+  <!--
+  "objects: [{&quot;modelUrl&quot;:&quot;./models/Lava lamp;},
+                {&quot;modelUrl&quot;:&quot;./models/Globe;},
+                {&quot;modelUrl&quot;:&quot;./models/paint kit mini},
+                {&quot;modelUrl&quot;:&quot;./models/rug;}]
+      "
+      -->
+
+  <!--
+  "objects: [{&quot;modelUrl&quot;:&quot;./luxury-jazz-loop-312713.mp3;},
+                {&quot;modelUrl&quot;:&quot;./fireplace.mp3;},
+                {&quot;modelUrl&quot;:&quot;./rain-sound-272604.mp3},
+
+      "
+      -->
 </a-scene>
 `
