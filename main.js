@@ -14,6 +14,7 @@ import "./components/place-once.js"
 import "./components/moving_button.js"
 import "./components/animation-toggle.js"
 import "./components/face-camera.js"
+import "./components/random-walk.js"
 import "./components/sound-toggle.js"
 
 document.querySelector("#app").innerHTML = /*html*/`
@@ -36,7 +37,7 @@ document.querySelector("#app").innerHTML = /*html*/`
 <a-entity id="mouseRaycaster" raycaster="objects: .clickable" cursor="rayOrigin: mouse; fuse: false;"></a-entity>
 
 <!-- Photo
-<a-plane
+<a-plane id="Photo"
   class="clickable"
   src="textures/Paws.jpg"
   width="0.2" height="0.2" material="shader: flat"
@@ -51,9 +52,12 @@ document.querySelector("#app").innerHTML = /*html*/`
   place-once
 ></a-plane>  -->
 
-<!-- Plant select -->
-<a-entity
+<!-- Orchid -->
+<a-entity id="Orchid"
   class="clickable"
+  gltf-model="models/orchid.glb"
+  scale="0.05 0.05 0.05"
+  visible = "false"
   place-object="
     surfaceTypes: horizontal;
     faceCamera: false;
@@ -63,8 +67,7 @@ document.querySelector("#app").innerHTML = /*html*/`
     heightRange: 0 6;
   "
   place-once
-  position= "-0.5 0 2"
->
+></a-entity> 
 
 <a-entity button_option="
       buttonSide: back;
@@ -97,8 +100,8 @@ objects: [{&quot;modelUrl&quot;:&quot;./models/plants/Houseplant_1.glb&quot;},
 
 </a-entity>  
 
-<!-- briefcase 
-<a-box 
+<!-- briefcase -->
+<a-box id="Briefcase"
 width="1" height="2.5" depth="3"
 color="transparent"
 opacity= "0"
@@ -122,32 +125,49 @@ place-object="
   scale="1 1 1"
   ></a-entity>
 </a-box>
- 
-<a-image 
-    id="popup-photo"
-    src="textures/maxresdefault.jpg" 
-    follow-camera="angle: 1; distance: 4;"
-    position="0 1.5 -1" 
-    visible="false" 
-    width="1" 
-    height="1"
-    opacity="0.65"
-    face-camera
-  ></a-image>
--->
- 
 
-<!-- Gramophone 
-<a-entity
+<a-image 
+  id="popup-photo1"
+  src="textures/maxresdefault.jpg" 
+  visible="false" 
+  width="1" 
+  height="1"
+  opacity="0.65"
+  face-camera
+></a-image>
+
+<a-image 
+  id="popup-photo2"
+  src="textures/images.jpg" 
+  visible="false" 
+  width="1" 
+  height="1"
+  opacity="0.65"
+  face-camera
+></a-image>
+
+<a-image 
+  id="popup-photo3"
+  src="textures/smiley.png" 
+  visible="false" 
+  width="1" 
+  height="1"
+  opacity="0.65"
+  face-camera
+></a-image> 
+
+<!-- Gramophone-->
+<a-entity id="Gramophone"
   class="clickable"
   gltf-model="models/Gramophone.glb"
-  scale="0.05 0.05 0.05"
+  scale="0.7 0.7 0.7"
+  visible = "false"
   place-object="
     surfaceTypes: horizontal, floor;
     faceCamera: true;
     adjustOrientation: true;
     isPoster: false;
-    scale: 0.05;
+    scale: 0.7;
     heightRange: 0 6;
   "
   place-once
@@ -155,9 +175,9 @@ place-object="
   sound-toggle
 >
   </a-entity> 
--->
 
-   <!-- JOURNAL -->
+
+   <!-- JOURNAL 
 <a-entity
   class="clickable"
   gltf-model="models/Open Book.glb"
@@ -172,6 +192,7 @@ place-object="
     scale: 1;
     heightRange: 0 6;
   "></a-entity> 
+  -->
 
    <!-- DIALOG  
 
@@ -195,54 +216,17 @@ place-object="
 -->
 
 
+
+<!-- AlpaKa 
 <a-entity 
     gltf-model="models/Alpaca.glb"
-    animation-mixer="clip: *Walk*"
-    hello="message: Hey, nom nom, how are you feeling?"
-    place-object="surfaceTypes: horizontal, wall; adjustOrientation: true; faceCamera: true; isPoster: false; scale: 0.1;"
+    scale="0.33 0.33 0.33"
+    place-object="surfaceTypes: horizontal, floor; adjustOrientation: true; faceCamera: false; isPoster: false; scale: 0.33; heightRange: 0 6;"
     place-once
-    visible="false"
-  >
-  </a-entity>
-
-  <!-- ROBOT 
-  <a-entity 
-    gltf-model="models/robot.glb"
-    animation-mixer="clip: *Dance*"
-    hello="message: Hello, I am a robot!"
-    place-object="surfaceTypes: horizontal, wall; adjustOrientation: true; faceCamera: true; isPoster: false; scale: 0.1;"
-    place-once
-    visible="false"
-  >
-    <a-text 
-      id="robot-message" 
-      scale="0 0 0" 
-      value="TEXT" 
-      align="center"
-      position="0 5.5 0" 
-      color="black" 
-      width="8"
-    ></a-text>
-    <a-ar-button
-        show-contact
-        position="0 6.5 0"
-        content="Show contact"
-        primary="blue"
-        textcolor="white"
-        size="large"
-    ></a-ar-button>
-  </a-entity>
-
-  DIALOG
-  <a-plane id="dialog" follow-camera="angle: 1; distance: 0.3;" billboard scale="0 0 0" color="black" width="2" height="2">
-    <a-text value="Robot contact card" color="white" position="0 0.75 0.05" align="center" width="4"></a-text>
-    <a-text value="Phone: 4542165654654" color="white" position="0 0.5 0.05" align="center" width="2"></a-text>
-    <a-entity position="-0.4 0.25 0.05">
-      <a-ar-checkbox size="small"></a-ar-checkbox>
-      <a-text value="Add to favorites" color="white" position="0.15 0 0" align="left" width="2"></a-text>
-    </a-entity>
-    <a-ar-button id="dialog-close-button" position="0 -0.5 0.05" content="Close"></a-ar-button> 
-  </a-plane> -->
+    random-walk="speed: 0.7; areaSize: 4"
+  animation-mixer="clip: Walk"
+  ></a-entity> 
+  
 
 </a-scene>
 `
