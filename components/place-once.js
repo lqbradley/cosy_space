@@ -5,5 +5,6 @@ AFRAME.registerComponent("place-once", {
             this.el.sceneEl.removeAttribute("place-object-manager");
             this.el.remove();
         });
+       // setTimeout(() => this.el.remove(), 10 )
     }
 })

@@ -9,9 +9,11 @@ import "spatial-design-system/components/ar/place-object-manager.js";
 import "./components/touch-raycaster.js";
 import "./components/hello.js";
 import "./components/show-contact.js"
+import "./components/show-journal.js"
 import "./components/place-once.js"
 import "./components/animation-toggle.js"
 import "./components/face-camera.js"
+import "./components/sound-toggle.js"
 
 document.querySelector("#app").innerHTML = /*html*/`
 <a-scene 
@@ -63,7 +65,7 @@ document.querySelector("#app").innerHTML = /*html*/`
   place-once
 ></a-entity>  -->
 
-<!-- briefcase -->
+<!-- briefcase 
 <a-box 
 width="1" height="2.5" depth="3"
 color="transparent"
@@ -100,7 +102,7 @@ place-object="
     opacity="0.65"
     face-camera
   ></a-image>
-
+-->
  
 
 <!-- Gramophone 
@@ -118,10 +120,48 @@ place-object="
     heightRange: 0 6;
   "
   place-once
-  animation-toggle
   sound="src: url(luxury-jazz-loop-312713.mp3); autoplay: false; on: click"
   sound-toggle
-></a-entity> 
+>
+  </a-entity> 
+-->
+
+   <!-- JOURNAL -->
+<a-entity
+  class="clickable"
+  gltf-model="models/Open Book.glb"
+  scale="1 1 1"
+  visible = "false"
+  show-journal 
+  place-object="
+    surfaceTypes: horizontal;
+    faceCamera: false;
+    adjustOrientation: true;
+    isPoster: false;
+    scale: 1;
+    heightRange: 0 6;
+  "></a-entity> 
+
+   <!-- DIALOG  
+
+    <a-ar-button
+        show-journal
+        position="0 1 0"
+        content="How do you feel?"
+        size="large"
+    ></a-ar-button>
+  <a-plane id="dialog" follow-camera="angle: 1; distance: 0.3;" 
+  billboard scale="0.2 0.2 0.2" color="black" width="2" height="2">
+    <a-text value="Robot contact card" color="white" position="0 0.75 0.05" align="center" width="4"></a-text>
+    <a-text value="Phone: 4542165654654" color="white" position="0 0.5 0.05"  align="center" width="2"></a-text>
+    <a-entity position="-0.4 0.25 0.05">
+      <a-ar-checkbox size="small"></a-ar-checkbox>
+      <a-text value="Add to favorites" color="white" position="0.15 0 0" align="left" width="2"></a-text>
+    </a-entity>
+    <a-ar-button id="journal-close-button" position="0 -0.5 0.05" content="Close">
+    </a-ar-button> 
+  </a-plane>
+-->
 
 <!-- AlpaKa
 <a-entity 
