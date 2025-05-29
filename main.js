@@ -9,15 +9,17 @@ import "spatial-design-system/components/ar/place-object-manager.js";
 import "./components/touch-raycaster.js";
 import "./components/hello.js";
 import "./components/show-contact.js"
+import "./components/show-journal.js"
 import "./components/place-once.js"
-import "./components/sound-toggle.js"
 
 import "./components/animation-toggle.js"
 import "./components/face-camera.js"
 import "./components/random-walk.js"
-import "./components/scene.js"
+import "./components/sound-toggle.js"
+import "./components/interactive-pet.js"
 
 import "./components/moving_button.js"
+
 
 document.querySelector("#app").innerHTML = /*html*/`
 <a-scene 
@@ -27,6 +29,7 @@ document.querySelector("#app").innerHTML = /*html*/`
   place-object-manager="maxObjects: 20; showPreview: true"
   touch-raycaster
 >
+
  
 <a-camera posiion="0 0 0"></a-camera>
  <a-assets>
@@ -41,41 +44,6 @@ document.querySelector("#app").innerHTML = /*html*/`
 </a-entity>
 
 <a-sky material="src:./textures/wallpaper.jpg; repeat: 10 10"></a-sky> -->
-<!-- Photo
-<a-plane id="Photo"
-  class="clickable"
-  src="textures/Paws.jpg"
-  width="0.2" height="0.2" material="shader: flat"
-  place-object="
-    surfaceTypes: wall;
-    faceCamera: false;
-    isPoster: true;
-    adjustOrientation: true;
-    scale: 1;
-    heightRange: 0 6;
-  "
-  place-once
-></a-plane>  -->
-
-<!-- Orchid 
-<a-entity id="Orchid"
-  class="clickable"
-  gltf-model="models/orchid.glb"
-  scale="0.05 0.05 0.05"
-  visible = "false"
-  place-object="
-    surfaceTypes: horizontal;
-    faceCamera: false;
-    adjustOrientation: true;
-    isPoster: false;
-    scale: 0.05;
-    heightRange: 0 6;
-  "
-  place-once
->
-</a-entity>  
--->
-
 
 
 <!-- arrows for plants-->
@@ -110,23 +78,56 @@ document.querySelector("#app").innerHTML = /*html*/`
       material="color: #FFECA1" class="clickable">
 </a-entity> -->
 
-<!-- briefcase 
+<!-- Alpaca -->
+<a-entity 
+    gltf-model="models/Alpaca.glb"
+    scale="2 2 2"
+    visible="true"
+    random-walk="speed: 7; areaSize: 100"
+  animation-mixer="clip: Walk"
+  class="clickable"
+  click-to-eat
+   ></a-entity>
+
+<!-- Gramophone-->
+<a-entity id="Gramophone"
+  class="clickable"
+  gltf-model="models/Gramophone.glb"
+  scale="5 5 5"
+  visible = "true"
+  sound="src: url(luxury-jazz-loop-312713.mp3); autoplay: false; on: click"
+  sound-toggle
+  position="0 0 12.855"
+></a-entity>   
+
+<!-- Photo -->
+<a-plane
+  class="clickable"
+  src="textures/Paws.jpg"
+  width="1" height="1" material="shader: flat"
+  visible = "true"
+  position="0 6 0"
+  face-camera
+></a-plane>  
+
+<!-- Orchid -->
+<a-entity
+  class="clickable"
+  gltf-model="models/Orchid.glb"
+  scale="0.5 0.5 0.5"
+  position="2 0 -10"
+></a-entity>  
+
+<!-- briefcase -->
+
 <a-box id="Briefcase"
 width="1" height="2.5" depth="3"
 color="transparent"
 opacity= "0"
-visible="false"
+visible="true"
 animation-toggle 
 class="clickable"
-place-object="
-      surfaceTypes: horizontal, floor, vertical;
-      faceCamera: false;
-      adjustOrientation: true;
-      isPoster: false;
-      scale: 0.1;
-      heightRange: 0 6;
-    "
-     place-once
+
 >
 <a-entity
   position = "0 -1 0"
@@ -165,37 +166,30 @@ place-object="
   opacity="0.65"
   face-camera
 ></a-image> 
--->
-<!-- Gramophone 
-<a-entity id="Gramophone"
+
+<a-entity id="Lava-lamp"
   class="clickable"
-  gltf-model="models/Gramophone.glb"
-  scale="0.7 0.7 0.7"
-  visible = "false"
-  place-object="
-    surfaceTypes: horizontal, floor;
-    faceCamera: true;
-    adjustOrientation: true;
-    isPoster: false;
-    scale: 0.7;
-    heightRange: 0 6;
-  "
-  place-once
+  gltf-model="models/Lava lamp.glb"
+  scale="0.5 0.5 0.5"
+  visible = "true"
+>
+  </a-entity> 
 
-  sound="src: url(luxury-jazz-loop-312713.mp3); autoplay: false; on: click"
-  sound-toggle
-></a-entity> 
--->
-<!-- alpaca
-<a-entity 
-    gltf-model="models/Alpaca.glb"
-    scale="0.33 0.33 0.33"
-    place-object="surfaceTypes: horizontal, floor; adjustOrientation: true; faceCamera: false; isPoster: false; scale: 0.33; heightRange: 0 6;"
-    place-once
-    random-walk="speed: 0.7; areaSize: 4"
-  animation-mixer="clip: Walk"
-  ></a-entity> 
-  -->
+  <!--
+  "objects: [{&quot;modelUrl&quot;:&quot;./models/Lava lamp;},
+                {&quot;modelUrl&quot;:&quot;./models/Globe;},
+                {&quot;modelUrl&quot;:&quot;./models/paint kit mini},
+                {&quot;modelUrl&quot;:&quot;./models/rug;}]
+      "
+      -->
 
+  <!--
+  "objects: [{&quot;modelUrl&quot;:&quot;./luxury-jazz-loop-312713.mp3;},
+                {&quot;modelUrl&quot;:&quot;./fireplace.mp3;},
+                {&quot;modelUrl&quot;:&quot;./rain-sound-272604.mp3},
+
+      "
+
+</a-entity>
 </a-scene>
 `
