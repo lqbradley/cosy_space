@@ -12,6 +12,7 @@ import "./components/show-contact.js"
 import "./components/place-once.js"
 import "./components/animation-toggle.js"
 import "./components/face-camera.js"
+import "./components/random-walk.js"
 
 document.querySelector("#app").innerHTML = /*html*/`
 <a-scene 
@@ -23,7 +24,7 @@ document.querySelector("#app").innerHTML = /*html*/`
 >
 
 <!-- Photo
-<a-plane
+<a-plane id="Photo"
   class="clickable"
   src="textures/Paws.jpg"
   width="0.2" height="0.2" material="shader: flat"
@@ -39,8 +40,8 @@ document.querySelector("#app").innerHTML = /*html*/`
   place-once
 ></a-plane>  -->
 
-<!-- Orchid 
-<a-entity
+<!-- Orchid -->
+<a-entity id="Orchid"
   class="clickable"
   gltf-model="models/orchid.glb"
   scale="0.05 0.05 0.05"
@@ -54,10 +55,12 @@ document.querySelector("#app").innerHTML = /*html*/`
     heightRange: 0 6;
   "
   place-once
-></a-entity>  -->
+></a-entity>  
+
+
 
 <!-- briefcase -->
-<a-box 
+<a-box id="Briefcase"
 width="1" height="2.5" depth="3"
 color="transparent"
 opacity= "0"
@@ -81,23 +84,39 @@ place-object="
   scale="1 1 1"
   ></a-entity>
 </a-box>
- 
+
 <a-image 
-    id="popup-photo"
-    src="textures/maxresdefault.jpg" 
-    follow-camera="angle: 1; distance: 4;"
-    position="0 1.5 -1" 
-    visible="false" 
-    width="1" 
-    height="1"
-    opacity="0.65"
-    face-camera
-  ></a-image>
+  id="popup-photo1"
+  src="textures/maxresdefault.jpg" 
+  visible="false" 
+  width="1" 
+  height="1"
+  opacity="0.65"
+  face-camera
+></a-image>
 
- 
+<a-image 
+  id="popup-photo2"
+  src="textures/images.jpg" 
+  visible="false" 
+  width="1" 
+  height="1"
+  opacity="0.65"
+  face-camera
+></a-image>
 
-<!-- Gramophone 
-<a-entity
+<a-image 
+  id="popup-photo3"
+  src="textures/smiley.png" 
+  visible="false" 
+  width="1" 
+  height="1"
+  opacity="0.65"
+  face-camera
+></a-image> 
+
+<!-- Gramophone
+<a-entity id="Gramophone"
   class="clickable"
   gltf-model="models/Gramophone.glb"
   scale="0.7 0.7 0.7"
@@ -114,17 +133,19 @@ place-object="
   animation-toggle
   sound="src: url(luxury-jazz-loop-312713.mp3); autoplay: false; on: click"
   sound-toggle
-></a-entity> 
+></a-entity>   -->
 
-<!-- AlpaKa
+<!-- AlpaKa 
 <a-entity 
     gltf-model="models/Alpaca.glb"
     scale="0.33 0.33 0.33"
-    place-object="surfaceTypes: horizontal, floor; adjustOrientation: true; faceCamera: true; isPoster: false; scale: 0.33; heightRange: 0 6;"
+    place-object="surfaceTypes: horizontal, floor; adjustOrientation: true; faceCamera: false; isPoster: false; scale: 0.33; heightRange: 0 6;"
     visible="false"
     place-once
-  ></a-entity>
-  -->
+    random-walk="speed: 0.7; areaSize: 4"
+  animation-mixer="clip: Walk"
+  ></a-entity> 
+  
 
 </a-scene>
 `
