@@ -21,7 +21,9 @@ document.querySelector("#app").innerHTML = /*html*/`
   touch-raycaster
 >
  <a-assets>
-    <audio id="luxury-jazz-loop-312713" src="luxury-jazz-loop-312713.mp3" preload="auto" ></audio>
+    <audio id="sound" src="luxury-jazz-loop-312713.mp3" preload="auto"></audio>
+    <audio id="sound" src="fireplace.mp3" preload="auto"></audio>
+    <audio id="sound" src="rain-sound-272604.mp3" preload="auto"></audio>
   </a-assets>
 
 <a-entity id="mouseRaycaster" raycaster="objects: .clickable" cursor="rayOrigin: mouse; fuse: false;"></a-entity>
