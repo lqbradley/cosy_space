@@ -11,6 +11,8 @@ import "./components/hello.js";
 import "./components/show-contact.js"
 import "./components/place-once.js"
 import "./components/moving_button.js"
+import "./components/animation-toggle.js"
+import "./components/face-camera.js"
 
 document.querySelector("#app").innerHTML = /*html*/`
 <a-scene 
@@ -22,7 +24,14 @@ document.querySelector("#app").innerHTML = /*html*/`
   background="color: black"
 >
   <a-camera position="0 0 2"></a-camera>
-  <a-entity light="type: hemisphere; color: #E1F7F7; groundColor: #824516; intensity: 2"></a-entity>
+ 
+ <a-assets>
+    <audio id="sound" src="luxury-jazz-loop-312713.mp3" preload="auto"></audio>
+    <audio id="sound" src="fireplace.mp3" preload="auto"></audio>
+    <audio id="sound" src="rain-sound-272604.mp3" preload="auto"></audio>
+  </a-assets>
+
+<a-entity id="mouseRaycaster" raycaster="objects: .clickable" cursor="rayOrigin: mouse; fuse: false;"></a-entity>
 
 <!-- Photo
 <a-plane
@@ -85,24 +94,47 @@ objects: [{&quot;modelUrl&quot;:&quot;./models/plants/Houseplant_1.glb&quot;},
 
 </a-entity>  
 
-<!-- briefcase 
+<!-- briefcase -->
+<a-box 
+width="1" height="2.5" depth="3"
+color="transparent"
+opacity= "0"
+visible="false"
+animation-toggle 
+class="clickable"
+place-object="
+      surfaceTypes: horizontal, floor, vertical;
+      faceCamera: false;
+      adjustOrientation: true;
+      isPoster: false;
+      scale: 0.1;
+      heightRange: 0 6;
+    "
+     place-once
+>
 <a-entity
-  class="clickable"
+  position = "0 -1 0"
   gltf-model="models/briefcase.glb"
-  animation-mixer="clip: closed"
-  scale="0.3 0.3 0.3" 
-  place-object="
-    surfaceTypes: horizontal;
-    faceCamera: false;
-    adjustOrientation: false;
-    isPoster: false;
-    scale: 0.3;
-    heightRange: 0 6;
-  "
-  place-once
-  toggle-animation="openClip: open; closedClip: closed"
-></a-entity>
--->
+  animation-mixer="clip: *closed*"
+  scale="1 1 1"
+  ></a-entity>
+</a-box>
+ 
+<a-image 
+    id="popup-photo"
+    src="textures/maxresdefault.jpg" 
+    follow-camera="angle: 1; distance: 4;"
+    position="0 1.5 -1" 
+    visible="false" 
+    width="1" 
+    height="1"
+    opacity="0.65"
+    face-camera
+  ></a-image>
+
+ 
+
+<!-- Gramophone 
 <a-entity
   class="clickable"
   gltf-model="models/Gramophone.glb"
