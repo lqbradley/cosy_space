@@ -13,6 +13,7 @@ import "./components/place-once.js"
 import "./components/animation-toggle.js"
 import "./components/face-camera.js"
 import "./components/random-walk.js"
+import "./components/interactive-pet.js"
 
 document.querySelector("#app").innerHTML = /*html*/`
 <a-scene 
@@ -40,8 +41,10 @@ visible="false"
     gltf-model="models/Alpaca.glb"
     scale="2 2 2"
     visible="true"
-    random-walk="speed: 10; areaSize: 600"
+    random-walk="speed: 7; areaSize: 100"
   animation-mixer="clip: Walk"
+  class="clickable"
+  click-to-eat
    ></a-entity>
 
 <!-- Gramophone-->
