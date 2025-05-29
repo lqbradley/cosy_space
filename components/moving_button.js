@@ -1,12 +1,13 @@
 import * as AFRAME from "aframe";
 import * as THREE from "three";
 
+
 AFRAME.registerComponent('button_option', {
     schema: {
         buttonSide: { type: 'string'}, // accepts 'next' or 'back'
         objects: { type: 'string', default: '[]' } 
     },
-    multiple: true, // need to put 2 arrows in the same approximate entity
+    
     init: function () {
 
         this.el.setAttribute("animation", {
@@ -31,8 +32,11 @@ AFRAME.registerComponent('button_option', {
         } 
         
         let currentIndex = 0;
+        if (this.objects.length > 0) {
+            this.mockup_object(0);
+          }
         // have it respond to a click event 
-        // TODO: Make sure the menu doesn't pop up if there are no objects
+    
         this.el.addEventListener('click', () => {
             if (this.data.buttonSide === 'next') {
                 currentIndex = (currentIndex + 1) % this.objects.length;
