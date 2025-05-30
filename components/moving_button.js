@@ -70,13 +70,14 @@ AFRAME.registerComponent('button_option', {
             }
 
             if (this.data.buttonSide === "next") {
-                mockupEl.setAttribute('position', '-2 -1 0.1')
+                mockupEl.setAttribute('position', '-2 -4 0.1')
             }
             this.el.appendChild(mockupEl);
         }
         
         mockupEl.setAttribute('gltf-model', objectData.modelUrl || ''); ;
         mockupEl.setAttribute('scale', objectData.scale || "1.5 1.5 1.5")
+        mockupEl.setAttribute('position',objectData.position || "-2.2 0 0" )
     }
 
 })

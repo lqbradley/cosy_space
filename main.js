@@ -57,9 +57,7 @@ document.querySelector("#app").innerHTML = /*html*/`
                 {"modelUrl":"./models/plants/Yucca Plant.glb",
                 "scale":"5 5 5"},
                 {"modelUrl":"./models/plants/Orchid.glb",
-                  "scale":"0.1 0.1 0.1"},
-                {"modelUrl":""}
-                ]
+                  "scale":"0.1 0.1 0.1"}]
       '
       geometry="primitive: triangle; vertexA: 0 1 0; vertexB: 0 -1 0; vertexC: 1 0 0" 
       position="5 0 -2" visible="true" scale="0.3 0.3 0.3"
