@@ -8,7 +8,6 @@ import "spatial-design-system/components/ar/place-object-manager.js";
 
 import "./components/touch-raycaster.js";
 import "./components/hello.js";
-import "./components/show-contact.js"
 import "./components/show-journal.js"
 import "./components/place-once.js"
 
@@ -51,21 +50,43 @@ document.querySelector("#app").innerHTML = /*html*/`
   visible="false"
   >
 
-
-<!-- arrows for plants-->
-<a-entity 
+<!-- decoration -->
+  <a-entity
       button_option='
       buttonSide: next;
-      objects: [{"modelUrl":"./models/plants/Sansevieria Plant.glb",
-                 "scale":"5 5 5"},
-                {"modelUrl":"./models/plants/Sansevieria Plant.glb"},
-                {"modelUrl":"./models/plants/Yucca Plant.glb"},
-                {"modelUrl":"./models/plants/Orchid.glb",
-                  "scale":"0.05 0.05 0.05"},
-                {"modelUrl":""}
-                ]
+      objects: [{"modelUrl":"./models/decorations/Lava lamp.glb",
+                 "scale":"1.5 1.5 1.5"},
+                {"modelUrl":"./models/decorations/Globe.glb",
+                "scale":"1.15 1.15 1.15"},
+                {"modelUrl":"./models/decorations/paint kit mini.glb",
+                "scale":"50 50 50 "},
+                {"modelUrl":"./models/decorations/Snowglobe.glb",
+                  "scale":"2 2 2"},
+                {"modelUrl":"./models/decorations/Open Book.glb",
+                  "scale":"7 7 7"},
+                {"modelUrl":"./models/decorations/Camera.glb",
+                  "scale":"10 10 10"}]
       '
-      geometry="primitive: triangle; vertexA: 0 1 0; vertexB: 0 -1 0; vertexC: 1 0 0" 
+      geometry="primitive: triangle; vertexA: 0 1 0; vertexB: 0 -1 0; vertexC: 1 0 0"
+      position="12 0 -9" visible="true" scale="0.3 0.3 0.3"
+      material="color: #FFECA1" class="clickable" rotation="2 0 0">
+</a-entity>
+
+<!-- arrows for plants-->
+<a-entity
+      button_option='
+      buttonSide: next;
+      objects: [{"modelUrl":"./models/plants/Coffee Plant.glb",
+                 "scale":"1.5 1.5 1.5"},
+                {"modelUrl":"./models/plants/Sansevieria Plant.glb",
+                "scale":"6 6 6"},
+                {"modelUrl":"./models/plants/Yucca Plant.glb",
+                "scale":"5 5 5"},
+                {"modelUrl":"./models/plants/Orchid.glb",
+                  "scale":"0.1 0.1 0.1"}
+                                ]
+      '
+      geometry="primitive: triangle; vertexA: 0 1 0; vertexB: 0 -1 0; vertexC: 1 0 0"
       position="5 0 -2" visible="true" scale="0.3 0.3 0.3"
       material="color: #FFECA1" class="clickable" rotation="2 0 0">
 </a-entity>
@@ -79,6 +100,7 @@ document.querySelector("#app").innerHTML = /*html*/`
   animation-mixer="clip: Walk"
   class="clickable"
   click-to-eat
+  timeout_visible
    ></a-entity>
 
 <!-- Gramophone-->
@@ -89,7 +111,7 @@ document.querySelector("#app").innerHTML = /*html*/`
   visible = "true"
   sound="src: url(luxury-jazz-loop-312713.mp3); autoplay: false; on: click"
   sound-toggle
-  position="0 0 12.855"
+  position="-5 0 10"
 ></a-entity>   
 
 <!-- Photo -->
@@ -101,14 +123,6 @@ document.querySelector("#app").innerHTML = /*html*/`
   position="0 6 0"
   face-camera
 ></a-plane>  
-
-<!-- Orchid 
-<a-entity
-  class="clickable"
-  gltf-model="models/Orchid.glb"
-  scale="0.5 0.5 0.5"
-  position="2 0 -10"
-></a-entity>  -->
 
 <!-- briefcase -->
 
@@ -158,30 +172,6 @@ class="clickable"
   opacity="0.65"
   face-camera
 ></a-image> 
-
-<!-- <a-entity id="Lava-lamp"
-  class="clickable"
-  gltf-model="models/Lava lamp.glb"
-  scale="0.5 0.5 0.5"
-  visible = "true"
-  posiion="12 0 -9"
->
-  </a-entity> -->
-
-  <!--
-  "objects: [{&quot;modelUrl&quot;:&quot;./models/Lava lamp;},
-                {&quot;modelUrl&quot;:&quot;./models/Globe;},
-                {&quot;modelUrl&quot;:&quot;./models/paint kit mini},
-                {&quot;modelUrl&quot;:&quot;./models/rug;}]
-      "
-      -->
-
-  <!--
-  "objects: [{&quot;modelUrl&quot;:&quot;./luxury-jazz-loop-312713.mp3;},
-                {&quot;modelUrl&quot;:&quot;./fireplace.mp3;},
-                {&quot;modelUrl&quot;:&quot;./rain-sound-272604.mp3},
-
-      " -->
 
 </a-entity>
 </a-scene>
